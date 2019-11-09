@@ -12,3 +12,10 @@ listing up ghq list and open it via vscode editor workflow for alfred.
 ```bash
 ./build.sh
 ```
+
+# useage
+## search and open via vscode
+keyword: li
+
+## search and open via vscode insights
+keyword: ex
