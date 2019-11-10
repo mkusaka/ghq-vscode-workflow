@@ -3,7 +3,7 @@ package main
 import (
 	"io/ioutil"
 	"log"
-	"os"
+	"os/exec"
 	"path/filepath"
 	"strings"
 
@@ -17,7 +17,14 @@ var (
 )
 
 func init() {
-	startDir = filepath.Join(os.Getenv("HOME"), "src")
+	// TODO: why not use ghq list?
+	ghqRoot, err := exec.Command("ghq", "root").Output()
+	if err != nil {
+		log.Printf("ghq command error: %s", err)
+	}
+
+	startDir = string(ghqRoot)
+
 	wf = aw.New()
 }
 
